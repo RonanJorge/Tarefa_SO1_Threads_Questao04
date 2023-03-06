@@ -1,12 +1,25 @@
+/* Nome: Ronan Jorge
+ * Data: 05/03/2023
+ * Objetivo: Fazer uma aplicação de uma corrida de sapos, com 5 Threads, 
+ * cada Thread controlando 1 sapo. Deve haver um tamanho máximo para cada 
+ * pulo do sapo (em metros) e a distância máxima para que os sapos percorram. 
+ * A cada salto, um sapo pode dar uma salto de 0 até o tamanho máximo do salto 
+ * valor aleatório). Após dar um salto, a Thread, para cada sapo, deve mostrar 
+ * no console, qual foi o tamanho do salto e quanto o sapo percorreu. Assim que 
+ * o sapo percorrer a distância máxima, a Thread deve apresentar que o sapo 
+ * chegou e qual sua colocação. */
+
 package view;
 
+import javax.swing.JOptionPane;
 import controller.ThreadSapos;
 
 public class Main {
-	static int pos = 1;
 	public static void main(String[] args) {
-		for(int i = 0; i < 6; i++) {
-			Thread sapo = new ThreadSapos(i, pos);
+		int salto = Integer.parseInt(JOptionPane.showInputDialog("Entre com valor máximo do salto."));
+		int dist = Integer.parseInt(JOptionPane.showInputDialog("Entre com valor da distância máxima."));
+		for(int i = 1; i < 6; i++) {		
+			Thread sapo = new ThreadSapos(i, salto, dist);
 			sapo.start();
 		}
 	}
