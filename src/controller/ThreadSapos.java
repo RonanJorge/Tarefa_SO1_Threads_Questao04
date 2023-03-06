@@ -1,5 +1,7 @@
 package controller;
 
+import javax.swing.JOptionPane;
+
 public class ThreadSapos extends Thread{
 	int n;
 	int salto;
@@ -16,9 +18,9 @@ public class ThreadSapos extends Thread{
 		while(soma < dist) {
 			int a = (int)(Math.random()*(salto + 1));
 			soma = soma + a;
-			System.out.println("Sapo " + n + " Salto = "+ a + " metros. Percorrido = "+ soma + " metros.");
+			JOptionPane.showMessageDialog(null, "Sapo " + n + " Salto = "+ a + " metros. Percorrido = "+ soma + " metros.");
 		}
-		System.out.println("O sapo "+ n + " chegou!");
+		JOptionPane.showMessageDialog(null,"O sapo "+ n + " chegou!");
 	}
 }
 
